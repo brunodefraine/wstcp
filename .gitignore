@@ -1,0 +1,6 @@
+/build/
+/client/
+/client-manifest.txt
+/server/WEB-INF/lib/
+/server/WEB-INF/server.conf
+/Makefile.config
