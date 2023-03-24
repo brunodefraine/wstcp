@@ -85,6 +85,12 @@ public class WSTcpServletContextListener implements ServletContextListener {
             }
         } catch (IOException e) {
             context.log("IO error reading config file", e);
+        } finally {
+            try {
+                in.close();
+            } catch (IOException e) {
+                context.log("IO error closing config file", e);
+            }
         }
     }
 
