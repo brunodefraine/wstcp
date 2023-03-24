@@ -34,13 +34,13 @@ build/wstcp-client: CP = build $(WEBSOCKETAPI)
 build/wstcp-client: $(wstcp-client-src) build/wstcp
 	$(COLLECT) $@ $(JAVAC) $(JAVACFLAGS) $(JAVACPFLAG) -d build $(wstcp-client-src)
 
-client-manifest.txt:
+client-manifest.txt: Makefile.config
+	mkdir -p client
+	cp $(CLIENTLIB) client
 	echo 'Main-Class: net.defraine.wstcp.client.WSTcpClient' >$@
 	echo 'Class-Path: $(notdir $(CLIENTLIB))' >>$@
 
 client/wstcp-client.jar: client-manifest.txt build/wstcp build/wstcp-client
-	mkdir -p client
-	cp $(CLIENTLIB) client
 	cd build && jar cfm $(abspath $@) $(abspath client-manifest.txt) $(addprefix @,$(abspath build/wstcp build/wstcp-client))
 
 server/WEB-INF/lib/wstcp-server.jar: build/wstcp build/wstcp-server
