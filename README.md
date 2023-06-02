@@ -47,6 +47,10 @@ requires module `mod_proxy_wstunnel`:
 ProxyPassMatch ^/wstcp/(mail|other_endpoint)$ ws://localhost:8080/wstcp/$1
 ```
 
+The webapp will serve at its root a simple browser based client, written in HTML
+and JavaScript, intended for testing purposes only. Here, you can enter the
+address of an endpoint and establish a text-based connection.
+
 ### Client
 
 The client can be invoked as:
