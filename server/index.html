@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>wstcp client</title>
+<script src="client.js"></script>
+</head>
+<body>
+<h1>wstcp client</h1>
+<form name="connectForm">
+<label>EndPoint URL:
+<input type="url" name="endpointUrl" value="" placeholder="ws:// or wss://" pattern="wss?://.*" size="50" required/>
+</label>
+<input type="submit" name="submit" value="connect"/>
+<input type="button" name="disconnect" value="disconnect"/>
+</form>
+<textarea rows="25" cols="80" id="sessionLog" readonly></textarea>
+<form name="inputForm">
+<input type="text" name="input" value="" size="80"/>
+<input type="submit" name="submit" value="send"/>
+<input type="submit" name="submit" value="EOF"/>
+</form>
+</body>
+</html>
